@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "ass",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Arathain's Serverside Shenanigans",
+  "description": "Insane miscellany",
   "authors": [
-    "Me!"
+    "Arathain"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "",
+    "sources": "https://github.com/Arathain/arathainserversideshenanigans"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "ARR",
+  "icon": "assets/ass/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.arathain.ass.ASS"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "ass.mixins.json"
   ],
 
   "depends": {
@@ -34,5 +34,8 @@
   },
   "suggests": {
     "another-mod": "*"
+  },
+  "breaks": {
+    "optifabric": "*"
   }
 }
