@@ -19,6 +19,5 @@ public class KeepShelterGoal extends AvoidSunlightGoal {
         boolean raining = mob.getEntityWorld().isNight() && mob.getEntityWorld().isRaining();
         boolean isTamed = mob instanceof TameableEntity && ((TameableEntity) mob).isTamed() || mob instanceof HorseBaseEntity && ((HorseBaseEntity) mob).getOwnerUuid() != null;
         return NavigationConditions.hasMobNavigation(this.mob) && raining && !isTamed && !mob.hasPassengers();
-        //return raining;
     }
 }

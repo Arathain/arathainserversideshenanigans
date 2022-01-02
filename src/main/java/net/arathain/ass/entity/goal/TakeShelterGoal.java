@@ -1,15 +1,9 @@
 package net.arathain.ass.entity.goal;
 
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ai.goal.EscapeSunlightGoal;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.TameableEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Random;
 
 public class TakeShelterGoal extends EscapeSunlightGoal {
     public TakeShelterGoal(PathAwareEntity mob) {
