@@ -22,7 +22,7 @@ public abstract class CowEntityMixin extends AnimalEntity {
 
     @Inject(method = "initGoals", at = @At("TAIL"))
     private void inmitGoalms(CallbackInfo ci) {
-        if(Objects.requireNonNull(this.getServer()).getGameRules().get(ASSGamerules.ADVANCED_AI).get()) {
+        if(!(this.getServer() == null) && Objects.requireNonNull(this.getServer()).getGameRules().get(ASSGamerules.ADVANCED_AI).get()) {
             this.goalSelector.add(2, new KeepShelterGoal(this));
             this.goalSelector.add(3, new TakeShelterGoal(this));
         }

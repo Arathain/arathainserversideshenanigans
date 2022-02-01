@@ -9,10 +9,12 @@
     "DamageSourceAccessor",
     "DamageSourceMixin",
     "ItemMixin",
+    "LivingEntityMixin",
     "MilkItemMixin",
     "PigEntityMixin",
     "PillagerEntityMixin",
-    "SheepEntityMixin"
+    "SheepEntityMixin",
+    "ServerWorldMixin"
   ],
   "client": [
   ],

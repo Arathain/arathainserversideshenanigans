@@ -6,9 +6,13 @@ import net.minecraft.world.GameRules;
 
 public class ASSGamerules {
     public static GameRules.Key<GameRules.BooleanRule> ADVANCED_AI;
+    public static GameRules.Key<GameRules.BooleanRule> CURSED_HELL_MODE;
+    public static GameRules.Key<GameRules.BooleanRule> NO_DAMAGE_IMMUNITY;
 
     public static void init() {
-        ADVANCED_AI = registerGamerule("biggerBrainAi", GameRuleFactory.createBooleanRule(false));
+        ADVANCED_AI = registerGamerule("biggerBrainAi", GameRuleFactory.createBooleanRule(true));
+        CURSED_HELL_MODE = registerGamerule("cursedHellMode", GameRuleFactory.createBooleanRule(false));
+        NO_DAMAGE_IMMUNITY = registerGamerule("noDamageImmunity", GameRuleFactory.createBooleanRule(false));
     }
 
     private static <T extends GameRules.Rule<T>> GameRules.Key<T> registerGamerule(String name, GameRules.Type<T> type) {

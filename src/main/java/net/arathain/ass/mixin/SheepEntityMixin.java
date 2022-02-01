@@ -24,7 +24,7 @@ public abstract class SheepEntityMixin extends AnimalEntity {
 
     @Inject(method = "initGoals", at = @At("TAIL"))
     private void inmitGoals(CallbackInfo ci) {
-        if(Objects.requireNonNull(this.getServer()).getGameRules().get(ASSGamerules.ADVANCED_AI).get()) {
+        if(!(this.getServer() == null) && Objects.requireNonNull(this.getServer()).getGameRules().get(ASSGamerules.ADVANCED_AI).get()) {
             this.goalSelector.add(2, new KeepShelterGoal(this));
             this.goalSelector.add(3, new TakeShelterGoal(this));
             this.goalSelector.add(2, new FleeEntityGoal<>(this, WolfEntity.class, 8.0f, 1.0D, 1.6D));
