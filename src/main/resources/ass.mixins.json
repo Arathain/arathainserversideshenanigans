@@ -14,7 +14,7 @@
     "PigEntityMixin",
     "PillagerEntityMixin",
     "SheepEntityMixin",
-    "ServerWorldMixin"
+    "ThornsEnchantmentMixin"
   ],
   "client": [
   ],
