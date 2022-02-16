@@ -30,7 +30,7 @@ public class JoestarSecretTechniqueGoal extends Goal {
 
     @Override
     public boolean canStart() {
-        return mob.isUsingItem() && mob.getActiveItem().getItem() instanceof CrossbowItem && mob.getTarget() != null && !CrossbowItem.isCharged(mob.getActiveItem()) && EnchantmentHelper.getLevel(Enchantments.MULTISHOT, this.mob.getMainHandStack()) == 0 && this.findPosition();
+        return mob.isUsingItem() && mob.getActiveItem().getItem() instanceof CrossbowItem && mob.getTarget() != null && !CrossbowItem.isCharged(mob.getActiveItem()) && EnchantmentHelper.getLevel(Enchantments.MULTISHOT, this.mob.getMainHandStack()) == 0 && this.findPosition() && mob.getTarget().getArmor() > 8;
     }
     public boolean findPosition() {
         Vec3d vec3d = NoPenaltyTargeting.findFrom(this.mob, 16, 7, Vec3d.ofBottomCenter(this.mob.getPositionTarget()));

@@ -24,7 +24,7 @@ public abstract class PillagerEntityMixin extends IllagerEntity {
         if(!(this.getServer() == null) && Objects.requireNonNull(this.getServer()).getGameRules().get(ASSGamerules.ADVANCED_AI).get()) {
         this.goalSelector.add(1, new JoestarSecretTechniqueGoal(this, 0.9D));
         }
-        this.goalSelector.add(2, new BallsyCrossbowAttackGoal(this, 1.0D, 3.0f));
+        this.goalSelector.add(2, new BallsyCrossbowAttackGoal<>((PillagerEntity) (Object) this, 1.0D, 3.0f));
 
     }
 }

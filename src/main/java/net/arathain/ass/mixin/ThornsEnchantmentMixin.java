@@ -28,7 +28,7 @@ public class ThornsEnchantmentMixin {
     public void betterThorns(LivingEntity user, Entity attacker, int level, CallbackInfo ci) {
         Random random = user.getRandom();
         Map.Entry<EquipmentSlot, ItemStack> entry = EnchantmentHelper.chooseEquipmentWith(Enchantments.THORNS, user);
-        user.getWorld().getOtherEntities(user, Box.of(user.getPos(), 3, 3, 3)).forEach(entity -> {
+        user.getWorld().getOtherEntities(user, Box.of(user.getPos(), 2.5f, 2.5f, 2.5f)).forEach(entity -> {
             entity.damage(DamageSource.thorns(user), getDmgAmount(level, random));
         });
         if (entry != null) {

@@ -34,7 +34,7 @@ public class BallsyCrossbowAttackGoal<T extends HostileEntity & RangedAttackMob 
 
     @Override
     public void tick() {
-        if(actor != null) {
+        if(actor != null && actor.getTarget() != null) {
             this.actor.getNavigation().startMovingTo(this.actor.getTarget(), this.speeed);
         }
         super.tick();
