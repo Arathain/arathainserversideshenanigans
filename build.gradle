@@ -11,7 +11,12 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-
+	maven { url 'https://jitpack.io' }
+	// Needed to retrieve Cloth Config Lite for Omega Config in development environments.
+	maven {
+		name = "Shedaniel's Maven"
+		url = "https://maven.shedaniel.me/"
+	}
 }
 
 dependencies {
@@ -22,6 +27,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	include("com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}")
+	modImplementation("com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}")
 }
 
 processResources {

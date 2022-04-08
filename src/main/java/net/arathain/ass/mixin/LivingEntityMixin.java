@@ -1,24 +1,29 @@
 package net.arathain.ass.mixin;
 
 import net.arathain.ass.ASSGamerules;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.IceBlock;
+import net.minecraft.block.SpawnerBlock;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.enchantment.ThornsEnchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTracker;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.biome.OverworldBiomeCreator;
+import net.minecraft.world.biome.SpawnSettings;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -57,17 +62,5 @@ public abstract class LivingEntityMixin extends Entity {
         if(!(this.getServer() == null) && Objects.requireNonNull(this.getServer()).getGameRules().get(ASSGamerules.NO_DAMAGE_IMMUNITY).get())
         target.timeUntilRegen = 0;
     }
-    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
-    private void armouredDamageNegation(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        AtomicReference<Float> negationThreshold = new AtomicReference<>(this.getArmor() / 8f);
-        this.getArmorItems().forEach(stack -> {
-            if(stack.getItem() instanceof ArmorItem armor) {
-                negationThreshold.updateAndGet(v -> v + armor.getToughness() / 4f);
-            }
-        });
-        boolean canNegate = negationThreshold.get() >= amount;
-        if(canNegate) {
-            amount = 1;
-        }
-    }
+
 }

@@ -6,14 +6,14 @@ import net.minecraft.world.GameRules;
 
 public class ASSGamerules {
     public static GameRules.Key<GameRules.BooleanRule> ADVANCED_AI;
-    public static GameRules.Key<GameRules.BooleanRule> CURSED_HELL_MODE;
+    public static GameRules.Key<GameRules.BooleanRule> VIEW_RESTRICTION;
     public static GameRules.Key<GameRules.BooleanRule> NO_DAMAGE_IMMUNITY;
     public static GameRules.Key<GameRules.BooleanRule> ADVANCED_EFFECT_CLEARING;
 
     public static void init() {
         ADVANCED_AI = registerGamerule("biggerBrainAi", GameRuleFactory.createBooleanRule(true));
         ADVANCED_EFFECT_CLEARING = registerGamerule("advancedEffectClearing", GameRuleFactory.createBooleanRule(true));
-        CURSED_HELL_MODE = registerGamerule("cursedHellMode", GameRuleFactory.createBooleanRule(false));
+        VIEW_RESTRICTION = registerGamerule("viewRestriction", GameRuleFactory.createBooleanRule(false));
         NO_DAMAGE_IMMUNITY = registerGamerule("noDamageImmunity", GameRuleFactory.createBooleanRule(false));
     }
 

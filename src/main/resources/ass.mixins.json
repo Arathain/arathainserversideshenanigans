@@ -4,6 +4,7 @@
   "package": "net.arathain.ass.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ActiveTargetGoalMixin",
     "ChickenEntityMixin",
     "CowEntityMixin",
     "DamageSourceAccessor",
@@ -11,9 +12,11 @@
     "ItemMixin",
     "LivingEntityMixin",
     "MilkItemMixin",
+    "MobSpawnerLogicMixin",
     "PigEntityMixin",
     "PillagerEntityMixin",
     "SheepEntityMixin",
+    "SpawnEntryMixin",
     "ThornsEnchantmentMixin"
   ],
   "client": [
