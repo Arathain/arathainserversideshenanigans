@@ -1,6 +1,7 @@
 package net.arathain.ass.mixin;
 
 import net.arathain.ass.ASS;
+import net.arathain.ass.ASSGamerules;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.TrackTargetGoal;
@@ -11,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
+
 @Mixin(ActiveTargetGoal.class)
 public abstract class ActiveTargetGoalMixin extends TrackTargetGoal {
     @Shadow
@@ -20,7 +23,7 @@ public abstract class ActiveTargetGoalMixin extends TrackTargetGoal {
     }
     @Inject(at = @At("TAIL"), method = "findClosestTarget")
     protected void findTarget(CallbackInfo callbackInfo) {
-        if(targetEntity != null && !ASS.isLookingAt(this.mob, targetEntity)){
+        if(targetEntity != null && !ASS.isLookingAt(this.mob, targetEntity) && Objects.requireNonNull(targetEntity.getServer()).getGameRules().get(ASSGamerules.ADVANCED_AI).get()){
             targetEntity = null;
         }
     }
